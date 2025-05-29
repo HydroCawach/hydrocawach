@@ -25,11 +25,11 @@ code {
   height: 200%;
   background: linear-gradient(
     45deg,
-    rgba(59, 130, 246, 0.1) 25%,
+    rgba(37, 99, 235, 0.2) 25%,
     transparent 25%,
     transparent 50%,
-    rgba(59, 130, 246, 0.1) 50%,
-    rgba(59, 130, 246, 0.1) 75%,
+    rgba(37, 99, 235, 0.2) 50%,
+    rgba(37, 99, 235, 0.2) 75%,
     transparent 75%,
     transparent
   );
