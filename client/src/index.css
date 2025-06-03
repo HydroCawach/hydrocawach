@@ -23,16 +23,14 @@ code {
   position: absolute;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
-    45deg,
-    rgba(37, 99, 235, 0.2) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(37, 99, 235, 0.2) 50%,
-    rgba(37, 99, 235, 0.2) 75%,
-    transparent 75%,
-    transparent
-  );
+  background: linear-gradient(45deg,
+      rgba(37, 99, 235, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(37, 99, 235, 0.2) 50%,
+      rgba(37, 99, 235, 0.2) 75%,
+      transparent 75%,
+      transparent);
   background-size: 100px 100px;
   animation: water-flow 20s linear infinite;
 }
@@ -41,6 +39,7 @@ code {
   0% {
     transform: translate(0, 0);
   }
+
   100% {
     transform: translate(-50%, -50%);
   }
@@ -68,3 +67,4 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #2563eb;
 }
+
