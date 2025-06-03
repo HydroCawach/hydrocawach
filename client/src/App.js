@@ -11,6 +11,9 @@ import Collaborate from './components/Collaborate';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
+// Import the new InteractiveMap component
+import InteractiveMap from './components/InteractiveMap';
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -26,6 +29,17 @@ function App() {
       <About />
       <Solutions />
       <WhyUs />
+
+      {/* 👇 Add the InteractiveMap component here */}
+      <section id="interactive-map" data-aos="fade-up">
+        <h2 className="text-3xl font-bold text-center my-8">
+          Interactive Map
+        </h2>
+        <div className="container mx-auto px-4">
+          <InteractiveMap />
+        </div>
+      </section>
+
       <Impact />
       <Collaborate />
       <Footer />
