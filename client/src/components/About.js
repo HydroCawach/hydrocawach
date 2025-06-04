@@ -1,7 +1,65 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import './about.css';
 
 const About = () => {
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const ripples = useRef([]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const container = containerRef.current;
+
+    const resizeCanvas = () => {
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let lastRippleTime = 0; // track last ripple time
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ripples.current = ripples.current.filter(r => r.alpha > 0);
+
+      ripples.current.forEach((ripple, index) => {
+        ctx.beginPath();
+        ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(0, 0, 0, ${ripple.alpha})`; // transparent black stroke
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ripple.radius += 0.2; // slower expansion
+        ripple.alpha -= 0.0005; // slower fade-out
+      });
+
+      requestAnimationFrame(draw);
+    };
+
+    const addRipple = (e) => {
+      const now = Date.now();
+      if (now - lastRippleTime < 300) return; // 300ms gap between ripples
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      ripples.current.push({ x, y, radius: 0, alpha: 0.6 }); // strong initial alpha
+      lastRippleTime = now;
+    };
+
+    canvas.addEventListener('mousemove', addRipple);
+    draw();
+
+    return () => {
+      canvas.removeEventListener('mousemove', addRipple);
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,12 +102,17 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
+            <div
+              ref={containerRef}
+              className="ripple-container aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl relative cursor-pointer"
+            >
               <img
-                src="/images/water-treatment.jpg"
+                src="ripple_trial.jpg"
                 alt="Water Treatment Process"
                 className="object-cover w-full h-full"
+                draggable={false}
               />
+              <canvas ref={canvasRef} className="ripple-canvas" />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600 rounded-lg -z-10"></div>
           </motion.div>
@@ -59,4 +122,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;
