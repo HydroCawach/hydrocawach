@@ -5,6 +5,7 @@ import './about.css';
 const About = () => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
+  const videoRef = useRef(null); // Reference for the video
   const ripples = useRef([]);
 
   useEffect(() => {
@@ -20,34 +21,36 @@ const About = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    let lastRippleTime = 0; // track last ripple time
+    let lastRippleTime = 0;
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ripples.current = ripples.current.filter(r => r.alpha > 0);
 
-      ripples.current.forEach((ripple, index) => {
+      ripples.current.forEach(ripple => {
         ctx.beginPath();
         ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(0, 0, 0, ${ripple.alpha})`; // transparent black stroke
-        ctx.lineWidth = 2;
+
+        // Use translucent white for a subtle, ghostly ripple
+        ctx.strokeStyle = `rgba(255, 255, 255, ${ripple.alpha})`;
+        ctx.lineWidth = 1.5; // thinner lines for subtlety
         ctx.stroke();
 
-        ripple.radius += 0.2; // slower expansion
-        ripple.alpha -= 0.0005; // slower fade-out
+        ripple.radius += 0.1; // even slower expansion
+        ripple.alpha -= 0.0002; // even slower fade-out
       });
 
       requestAnimationFrame(draw);
     };
 
-    const addRipple = (e) => {
+    const addRipple = e => {
       const now = Date.now();
-      if (now - lastRippleTime < 300) return; // 300ms gap between ripples
+      if (now - lastRippleTime < 400) return; // slightly bigger gap
 
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      ripples.current.push({ x, y, radius: 0, alpha: 0.6 }); // strong initial alpha
+      ripples.current.push({ x, y, radius: 0, alpha: 0.3 }); // start with softer alpha
       lastRippleTime = now;
     };
 
@@ -57,6 +60,33 @@ const About = () => {
     return () => {
       canvas.removeEventListener('mousemove', addRipple);
       window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
+
+  useEffect(() => {
+    // Observer to auto-play video when it enters viewport
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            videoRef.current.play();
+          } else {
+            videoRef.current.pause();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
     };
   }, []);
 
@@ -106,9 +136,12 @@ const About = () => {
               ref={containerRef}
               className="ripple-container aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl relative cursor-pointer"
             >
-              <img
-                src="ripple_trial.jpg"
-                alt="Water Treatment Process"
+              <video
+                ref={videoRef}
+                src="vid.mp4"
+                muted
+                loop
+                playsInline
                 className="object-cover w-full h-full"
                 draggable={false}
               />
