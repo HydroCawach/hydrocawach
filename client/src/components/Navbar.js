@@ -20,10 +20,18 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex-shrink-0"
+            className="flex items-center flex-shrink-0"
           >
-            <h1 className="text-2xl font-bold text-blue-600">Hydrocawach</h1>
+            <img
+              src="/Hydrocawach_logo.png"
+              alt="HydroCawach Logo"
+              className="h-[180px] w-auto object-contain"
+            />
+
+
+
           </motion.div>
+
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
