@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -15,6 +14,11 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import InteractiveMap from './components/InteractiveMap';
 import './index.css';
+
+// Auth Components
+import Login from './auth/Login';
+import Signup from './auth/Signup';
+import SolutionsAuth from './auth/SolutionsAuth';
 
 // Solution Pages
 import HandpumpWaterDisinfection from './pages/HandpumpWaterDisinfection';
@@ -35,7 +39,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Main landing page */}
+        {/* Landing Page */}
         <Route
           path="/"
           element={
@@ -53,7 +57,12 @@ function App() {
           }
         />
 
-        {/* Solution-specific pages */}
+        {/* Auth Routes */}
+        <Route path="/auth" element={<SolutionsAuth />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* Solution Detail Pages */}
         <Route
           path="/solutions/handpump-water-disinfection"
           element={<HandpumpWaterDisinfection />}

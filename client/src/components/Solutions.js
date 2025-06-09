@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const solutions = [
   {
@@ -46,6 +45,15 @@ const Solutions = () => {
     return `/solutions/${title.toLowerCase().replace(/\s+/g, '-')}`;
   };
 
+  const handleCardClick = (title) => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      window.location.href = formatUrl(title);
+    } else {
+      window.location.href = '/auth';
+    }
+  };
+
   return (
     <section id="solutions" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,14 +72,18 @@ const Solutions = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <Link to={formatUrl(solution.title)} key={solution.title}>
+            <div
+              key={solution.title}
+              onClick={() => handleCardClick(solution.title)}
+              className="cursor-pointer"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="relative rounded-xl shadow-lg overflow-hidden group cursor-pointer"
+                className="relative rounded-xl shadow-lg overflow-hidden group"
               >
                 <img
                   src={solution.image}
@@ -93,7 +105,7 @@ const Solutions = () => {
                   {solution.title}
                 </div>
               </motion.div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
