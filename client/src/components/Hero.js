@@ -4,9 +4,9 @@ import { Link } from 'react-scroll';
 import WaterDroplets from './WaterDroplets';
 
 const backgroundImages = [
-  '/bg1.jpg',
-  '/bg2.webp',
-  '/bg3.jpg',
+  '/grp1.png',
+  '/grp2.jpeg',
+  '/grp3.jpeg',
 ];
 
 const Hero = () => {

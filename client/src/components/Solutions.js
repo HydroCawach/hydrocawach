@@ -5,37 +5,37 @@ const solutions = [
   {
     title: 'Handpump Water Disinfection',
     description: 'Clean, safe drinking water for rural communities through innovative disinfection technology.',
-    image: '/bg1.jpg',
+    image: '/Handpump-Photoroom.png',
     color: 'bg-blue-600',
   },
   {
     title: 'Lake and Pond Rejuvenation',
     description: 'Restore water bodies to their natural state with our eco-friendly treatment solutions.',
-    image: '/bg2.webp',
+    image: '/lake.jpg',
     color: 'bg-green-600',
   },
   {
     title: 'Industrial Effluent Pre-Treatment',
     description: 'Efficient pre-treatment of industrial wastewater before discharge.',
-    image: '/bg3.jpg',
+    image: '/industry.jpeg',
     color: 'bg-yellow-600',
   },
   {
     title: 'Cooling Tower Treatment',
     description: 'Optimize cooling tower performance with our advanced water treatment.',
-    image: '/bg3.jpg',
+    image: '/cooling.jpeg',
     color: 'bg-purple-600',
   },
   {
     title: 'Sewage Water Treatment',
     description: 'Transform sewage water into reusable water through our innovative process.',
-    image: '/bg1.jpg',
+    image: '/sewage.jpg',
     color: 'bg-teal-600',
   },
   {
     title: 'Swimming Pool Water Treatment',
     description: 'Maintain crystal clear pool water with minimal chemical usage.',
-    image: '/bg2.webp',
+    image: '/pool.jpeg',
     color: 'bg-pink-600',
   },
 ];
