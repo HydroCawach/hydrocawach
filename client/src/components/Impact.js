@@ -1,67 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
+const impactItems = [
+  {
+    title: 'Deployments Across Maharashtra & Gujarat',
+    value: '20+',
+    sdg: 'SDG 6 – Clean Water & Sanitation',
+  },
+  {
+    title: 'Operational Cost Savings',
+    value: '75%+',
+    sdg: 'SDG 9 – Industry, Innovation & Infrastructure',
+  },
+  {
+    title: 'Rural Beneficiaries with Safe Water Access',
+    value: '50,000+',
+    sdg: 'SDG 6 – Clean Water & Sanitation',
+  },
+  {
+    title: 'Strategic Partnerships',
+    value: 'Indian Oil, Cummins, Govt. Depts',
+    sdg: 'SDG 17 – Partnerships for the Goals',
+  },
+];
+
 const Impact = () => {
-  const [counts, setCounts] = useState({
-    handpumps: 0,
-    villages: 0,
-    lakes: 0,
-  });
-
-  useEffect(() => {
-    const targetCounts = {
-      handpumps: 160,
-      villages: 30,
-      lakes: 5,
-    };
-
-    const duration = 2000; // 2 seconds
-    const interval = 50; // Update every 50ms
-    const steps = duration / interval;
-    const increments = {
-      handpumps: targetCounts.handpumps / steps,
-      villages: targetCounts.villages / steps,
-      lakes: targetCounts.lakes / steps,
-    };
-
-    let currentStep = 0;
-    const timer = setInterval(() => {
-      currentStep++;
-      setCounts({
-        handpumps: Math.min(Math.floor(increments.handpumps * currentStep), targetCounts.handpumps),
-        villages: Math.min(Math.floor(increments.villages * currentStep), targetCounts.villages),
-        lakes: Math.min(Math.floor(increments.lakes * currentStep), targetCounts.lakes),
-      });
-
-      if (currentStep >= steps) {
-        clearInterval(timer);
-      }
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const impactItems = [
-    {
-      title: 'Handpumps Installed',
-      count: counts.handpumps,
-      suffix: '+',
-      icon: '💧',
-    },
-    {
-      title: 'Villages Reached',
-      count: counts.villages,
-      suffix: '+',
-      icon: '🏘️',
-    },
-    {
-      title: 'Lakes Rejuvenated',
-      count: counts.lakes,
-      suffix: '+',
-      icon: '🌊',
-    },
-  ];
-
   return (
     <section id="impact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,27 +36,28 @@ const Impact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Impact
+            Impact & Success Stories
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {impactItems.map((item, index) => (
             <motion.div
-              key={item.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="p-6 border rounded-xl shadow-sm hover:shadow-md transition"
             >
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">
-                {item.count}
-                {item.suffix}
+              <div className="text-3xl font-bold text-blue-700 mb-2">
+                {item.value}
               </div>
-              <h3 className="text-xl text-gray-900">{item.title}</h3>
+              <h3 className="text-xl text-gray-900 font-semibold mb-1">
+                {item.title}
+              </h3>
+              <p className="text-sm text-gray-600 italic">{item.sdg}</p>
             </motion.div>
           ))}
         </div>
@@ -102,4 +66,4 @@ const Impact = () => {
   );
 };
 
-export default Impact; 
+export default Impact;

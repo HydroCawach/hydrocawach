@@ -8,11 +8,11 @@ import "leaflet-extra-markers/dist/js/leaflet.extra-markers.min.js";
 import "./InteractiveMap.css";
 
 const points = [
-  { id: 1, name: "Saranwadi", position: [18.246136, 75.525303], history: "..." },
-  { id: 2, name: "Rui", position: [18.268241, 75.482333], history: "..." },
-  { id: 3, name: "Asu", position: [18.228297, 75.533406], history: "..." },
-  { id: 4, name: "Brahmagaon", position: [18.246758, 75.526577], history: "..." },
-  { id: 5, name: "Bahadarpur Saini", position: [29.91994, 77.9883], history: "..." },
+  { id: 1, name: "Saranwadi", position: [18.246136, 75.525303], history: "Handpump water disinfection project in Saranwadi, Maharashtra, providing clean drinking water to the village." },
+  { id: 2, name: "Rui", position: [18.268241, 75.482333], history: "Rui village in Maharashtra, India, is known for its community-driven water management initiatives." },
+  { id: 3, name: "Asu", position: [18.228297, 75.533406], history: "Asu village in Maharashtra, India, is recognized for its efforts in sustainable water management and community health." },
+  { id: 4, name: "Brahmagaon", position: [18.246758, 75.526577], history: "Handpump water disinfection project in Brahmagaon, Maharashtra, ensuring access to safe drinking water." },
+  { id: 5, name: "Bahadarpur Saini", position: [29.91994, 77.9883], history: "Handpump water disinfection project in Bahadarpur Saini, Uttrakhand, providing clean drinking water to the village." },
 ];
 
 const blueWaterIcon = L.ExtraMarkers.icon({
