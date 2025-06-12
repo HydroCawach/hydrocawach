@@ -33,8 +33,10 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
-      {/* Smooth Crossfade Background Images */}
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-black opacity-30 z-0"></div>
+
+      {/* Background Image Crossfade */}
       <div className="absolute inset-0 z-0">
         {backgroundImages.map((src, index) => (
           <motion.div
@@ -47,7 +49,6 @@ const Hero = () => {
           />
         ))}
       </div>
-
 
       {/* Left Arrow */}
       <button
@@ -71,7 +72,7 @@ const Hero = () => {
         </svg>
       </button>
 
-      {/* Water Droplets Effect */}
+      {/* Water Droplets */}
       <WaterDroplets />
 
       {/* Hero Content */}
@@ -80,16 +81,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="text-center flex flex-col items-center justify-center h-full pt-24 md:pt-40"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 max-w-4xl">
             Transforming Water Treatment with
             <span className="text-blue-600"> Hydrodynamic Cavitation</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+
+          <p className="text-lg md:text-xl text-gray-200 mt-4 mb-10 max-w-2xl">
             Pioneering sustainable water treatment solutions through innovative technology
             and scientific excellence.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="solutions"
@@ -107,7 +110,7 @@ const Hero = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer"
+              className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors cursor-pointer"
             >
               Contact Us
             </Link>
@@ -128,15 +131,15 @@ const Hero = () => {
           smooth={true}
           offset={-70}
           duration={500}
-          className="flex flex-col items-center text-blue-600 hover:text-blue-700 cursor-pointer"
+          className="flex flex-col items-center text-blue-300 hover:text-blue-500 cursor-pointer"
         >
-          <span className="text-sm mb-2">Scroll Down</span>
+          <span className="text-sm mb-2 text-blue-600">Scroll Down</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-blue-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
