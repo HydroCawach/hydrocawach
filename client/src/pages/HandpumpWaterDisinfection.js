@@ -68,7 +68,7 @@ const HandpumpWaterDisinfection = () => {
                   src={card.video}
                   autoPlay
                   loop
-
+                  muted
                   playsInline
                 />
               ) : (

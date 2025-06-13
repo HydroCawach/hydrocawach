@@ -138,8 +138,8 @@ const About = () => {
             >
               <video
                 ref={videoRef}
-                src="vid2.mp4"
-
+                src="vid.mp4"
+                muted
                 loop
                 playsInline
                 className="object-cover w-full h-full"
