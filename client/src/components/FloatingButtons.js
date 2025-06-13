@@ -1,23 +1,41 @@
 // src/components/FloatingButtons.js
 import React from "react";
-import "./FloatingButtons.css"; // You can create this for styling or use Tailwind inline if preferred
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faComments } from "@fortawesome/free-solid-svg-icons";
+import "./FloatingButtons.css";
 
 const FloatingButtons = () => {
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const email = localStorage.getItem("userEmail") || "hydrocawach@gmail.com"; // fallback
+
+  const handleDiscussClick = () => {
+    if (!isLoggedIn) {
+      navigate("/solutions-auth");
+    } else {
+      window.location.href = `mailto:hydrocawach@gmail.com?subject=Water Solution Inquiry&cc=${email}`;
+    }
+  };
+
+  const handleContactClick = () => {
+    if (!isLoggedIn) {
+      navigate("/solutions-auth");
+    } else {
+      window.location.href = "tel:+918624984991";
+    }
+  };
+
   return (
     <div className="floating-buttons">
-      <a href="tel: +91 8624984991" className="float-btn">
+      <button className="float-btn" onClick={handleContactClick}>
         <FontAwesomeIcon icon={faPhone} />
         <span>Contact Us</span>
-      </a>
-      <a
-        href="mailto:hydrocawach@gmail.com?subject=Water Solution Inquiry"
-        className="float-btn discuss-btn"
-      >
+      </button>
+      <button className="float-btn discuss-btn" onClick={handleDiscussClick}>
         <FontAwesomeIcon icon={faComments} />
         <span>Discuss Needs</span>
-      </a>
+      </button>
     </div>
   );
 };

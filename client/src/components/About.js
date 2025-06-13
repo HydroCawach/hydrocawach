@@ -138,7 +138,7 @@ const About = () => {
             >
               <video
                 ref={videoRef}
-                src="vid.mp4"
+                src="vid2.mp4"
                 muted
                 loop
                 playsInline
