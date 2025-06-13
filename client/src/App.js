@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import InteractiveMap from './components/InteractiveMap';
 import './index.css';
-
+import FloatingButtons from './components/FloatingButtons';
 // Auth Components
 import Login from './auth/Login';
 import Signup from './auth/Signup';
@@ -53,6 +53,7 @@ function App() {
               <Impact />
               <Collaborate />
               <Footer />
+              <FloatingButtons />
             </div>
           }
         />

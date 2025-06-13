@@ -17,21 +17,28 @@ const Navbar = () => {
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo now scrolls back to #hero */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="flex items-center flex-shrink-0"
           >
-            <img
-              src="/Hydrocawach_logo.png"
-              alt="HydroCawach Logo"
-              className="h-[180px] w-auto object-contain"
-            />
-
-
-
+            <Link
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className="cursor-pointer"
+              onClick={() => setIsOpen(false)} // closes mobile menu if open
+            >
+              <img
+                src="/Hydrocawach_logo.png"
+                alt="HydroCawach Logo"
+                className="h-[180px] w-auto object-contain"
+              />
+            </Link>
           </motion.div>
-
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
@@ -114,4 +121,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
