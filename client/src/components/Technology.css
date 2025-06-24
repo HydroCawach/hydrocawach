@@ -1,0 +1,39 @@
+.technology-page {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+}
+
+.tech-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.tech-section.alternate {
+  flex-direction: row-reverse;
+}
+
+.tech-video video,
+.tech-video img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tech-description {
+  flex: 1;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.blue-bg {
+  background-color: #0033cc; /* blue background */
+}
+
+
+html, body {
+  overflow-x: hidden;
+}

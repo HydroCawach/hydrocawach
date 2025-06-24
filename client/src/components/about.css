@@ -11,8 +11,7 @@
   z-index: 10;
   border-radius: 8px;
   overflow: hidden;
-  /* IMPORTANT: Allow pointer events for mouse interaction */
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 .ripple-container img {
@@ -21,4 +20,8 @@
 
 .ripple-container:hover img {
   transform: scale(1.05);
+}
+
+html, body {
+  overflow-x: hidden;
 }

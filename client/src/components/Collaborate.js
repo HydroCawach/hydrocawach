@@ -5,6 +5,7 @@ const Collaborate = () => {
   return (
     <section id="collaborate" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -13,11 +14,12 @@ const Collaborate = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Collaborate With Us
+            Connect With Us
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
+        {/* Paragraph and Button */}
         <div className="max-w-3xl mx-auto text-center">
           <motion.p
             initial={{ opacity: 0 }}
@@ -26,9 +28,7 @@ const Collaborate = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg text-gray-600 mb-8"
           >
-            Join us in our mission to make clean water accessible to all. We welcome partnerships
-            with CSR initiatives, government bodies, and industry leaders who share our vision
-            for sustainable water treatment solutions.
+            Have questions or want to learn more? Connect with us directly on WhatsApp — we’re happy to chat!
           </motion.p>
 
           <motion.div
@@ -36,23 +36,23 @@ const Collaborate = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
+            <motion.a
+              href="https://wa.me/919322949621"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, rotate: '-1deg' }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 text-lg font-semibold"
             >
-              Partner with Us
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
-            >
-              Request Demo
-            </motion.button>
+              <img
+                src="/whatsapp-logo.png"
+                alt="WhatsApp"
+                className="w-6 h-6"
+              />
+              Message us on WhatsApp
+            </motion.a>
           </motion.div>
         </div>
       </div>
@@ -60,4 +60,4 @@ const Collaborate = () => {
   );
 };
 
-export default Collaborate; 
+export default Collaborate;

@@ -5,7 +5,7 @@ import './about.css';
 const About = () => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
-  const videoRef = useRef(null); // Reference for the video
+  const videoRef = useRef(null);
   const ripples = useRef([]);
 
   useEffect(() => {
@@ -31,13 +31,12 @@ const About = () => {
         ctx.beginPath();
         ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
 
-        // Use translucent white for a subtle, ghostly ripple
         ctx.strokeStyle = `rgba(255, 255, 255, ${ripple.alpha})`;
-        ctx.lineWidth = 1.5; // thinner lines for subtlety
+        ctx.lineWidth = 1.5;
         ctx.stroke();
 
-        ripple.radius += 0.1; // even slower expansion
-        ripple.alpha -= 0.0002; // even slower fade-out
+        ripple.radius += 0.1;
+        ripple.alpha -= 0.0002;
       });
 
       requestAnimationFrame(draw);
@@ -45,54 +44,28 @@ const About = () => {
 
     const addRipple = e => {
       const now = Date.now();
-      if (now - lastRippleTime < 400) return; // slightly bigger gap
+      if (now - lastRippleTime < 400) return;
 
-      const rect = canvas.getBoundingClientRect();
+      const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      ripples.current.push({ x, y, radius: 0, alpha: 0.3 }); // start with softer alpha
+      ripples.current.push({ x, y, radius: 0, alpha: 0.3 });
       lastRippleTime = now;
     };
 
-    canvas.addEventListener('mousemove', addRipple);
+    container.addEventListener('mousemove', addRipple);
     draw();
 
     return () => {
-      canvas.removeEventListener('mousemove', addRipple);
+      container.removeEventListener('mousemove', addRipple);
       window.removeEventListener('resize', resizeCanvas);
-    };
-  }, []);
-
-
-  useEffect(() => {
-    // Observer to auto-play video when it enters viewport
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            videoRef.current.play();
-          } else {
-            videoRef.current.pause();
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
     };
   }, []);
 
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,6 +80,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Text Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -125,6 +99,7 @@ const About = () => {
             </p>
           </motion.div>
 
+          {/* Video with Ripple */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -139,9 +114,9 @@ const About = () => {
               <video
                 ref={videoRef}
                 src="vid2.mp4"
-                muted
                 loop
                 playsInline
+                controls
                 className="object-cover w-full h-full"
                 draggable={false}
               />

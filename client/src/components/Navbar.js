@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
@@ -9,6 +10,7 @@ const Navbar = () => {
     { name: 'Home', to: 'hero' },
     { name: 'About', to: 'about' },
     { name: 'Solutions', to: 'solutions' },
+    { name: 'Technology', to: 'technology' },
     { name: 'Impact', to: 'impact' },
     { name: 'Contact', to: 'contact' },
   ];
@@ -17,34 +19,34 @@ const Navbar = () => {
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo now scrolls back to #hero */}
+          {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="flex items-center flex-shrink-0"
           >
-            <Link
-              to="home"
+            <ScrollLink
+              to="hero"
               spy={true}
               smooth={true}
               offset={-70}
               duration={500}
               className="cursor-pointer"
-              onClick={() => setIsOpen(false)} // closes mobile menu if open
+              onClick={() => setIsOpen(false)}
             >
               <img
                 src="/Hydrocawach_logo.png"
                 alt="HydroCawach Logo"
                 className="h-[180px] w-auto object-contain"
               />
-            </Link>
+            </ScrollLink>
           </motion.div>
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
-                <Link
+                <ScrollLink
                   key={item.name}
                   to={item.to}
                   spy={true}
@@ -54,8 +56,10 @@ const Navbar = () => {
                   className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors"
                 >
                   {item.name}
-                </Link>
+                </ScrollLink>
               ))}
+
+
             </div>
           </div>
 
@@ -101,7 +105,7 @@ const Navbar = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
-              <Link
+              <ScrollLink
                 key={item.name}
                 to={item.to}
                 spy={true}
@@ -112,8 +116,17 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
-              </Link>
+              </ScrollLink>
             ))}
+
+            {/* Technology Page Link (Router Link) */}
+            <RouterLink
+              to="/technology"
+              className="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium cursor-pointer"
+              onClick={() => setIsOpen(false)}
+            >
+              Technology
+            </RouterLink>
           </div>
         </motion.div>
       )}

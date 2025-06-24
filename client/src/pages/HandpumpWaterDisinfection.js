@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaPhoneAlt, FaComments } from 'react-icons/fa';
 import InteractiveMap from '../components/InteractiveMap';
-
+import WhatsAppConnect from '../components/whatsappConnect';
 // ✅ Move PageNavbar above component but after imports
 const PageNavbar = () => {
   return (
@@ -23,7 +23,7 @@ const PageNavbar = () => {
 
 const HandpumpWaterDisinfection = () => {
   return (
-    <div className="bg-white text-gray-800 min-h-screen relative">
+    <div className="bg-white text-gray-800 min-h-screen relative overflow-x-hidden">
       {/* Fixed Custom Navbar */}
       <PageNavbar />
 
@@ -93,23 +93,7 @@ const HandpumpWaterDisinfection = () => {
         </div>
       </div>
 
-      {/* Floating Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-[9999]">
-        <a
-          href="tel:+91 8624984991"
-          className="bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-blue-700 flex items-center space-x-2"
-        >
-          <FaPhoneAlt />
-          <span>Contact Us</span>
-        </a>
-        <a
-          href="mailto:hydrocawach@gmail.com?subject=Water Solution Inquiry"
-          className="bg-green-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-green-700 flex items-center space-x-2"
-        >
-          <FaComments />
-          <span>Discuss Your Needs</span>
-        </a>
-      </div>
+      <WhatsAppConnect />
     </div>
   );
 };

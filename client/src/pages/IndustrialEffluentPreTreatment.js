@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaPhoneAlt, FaComments } from 'react-icons/fa';
 import InteractiveMap from '../components/InteractiveMap';
-
+import WhatsAppConnect from '../components/whatsappConnect';
 const PageNavbar = () => (
   <nav className="fixed top-0 w-full bg-white shadow-md z-50 flex items-center justify-between px-6 h-24 overflow-hidden">
     <img src="/Hydrocawach_logo.png" alt="HydroCawach Logo" className="h-36 w-auto object-contain" />
@@ -12,7 +12,7 @@ const PageNavbar = () => (
 );
 
 const IndustrialEffluentPreTreatment = () => (
-  <div className="bg-white text-gray-800 min-h-screen relative">
+  <div className="bg-white text-gray-800 min-h-screen relative overflow-x-hidden">
     <PageNavbar />
 
     <div className="pt-24 px-4">
@@ -66,19 +66,7 @@ const IndustrialEffluentPreTreatment = () => (
       </div>
     </div>
 
-    <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-[9999]">
-      <a href="tel:+918624984991" className="bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-blue-700 flex items-center space-x-2">
-        <FaPhoneAlt />
-        <span>Contact Us</span>
-      </a>
-      <a
-        href="mailto:hydrocawach@gmail.com?subject=Effluent Pre‑Treatment Inquiry"
-        className="bg-green-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-green-700 flex items-center space-x-2"
-      >
-        <FaComments />
-        <span>Discuss Your Needs</span>
-      </a>
-    </div>
+    <WhatsAppConnect />
   </div>
 );
 

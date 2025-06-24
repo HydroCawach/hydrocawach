@@ -68,3 +68,7 @@ html {
   background: #2563eb;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}

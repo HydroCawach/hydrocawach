@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Technology from './components/Technology';
 
 // Core Components
 import Hero from './components/Hero';
@@ -14,7 +15,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import InteractiveMap from './components/InteractiveMap';
 import './index.css';
-import FloatingButtons from './components/FloatingButtons';
+
 // Auth Components
 import Login from './auth/Login';
 import Signup from './auth/Signup';
@@ -43,17 +44,18 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="min-h-screen bg-white">
+            <div className="min-h-screen bg-white overflow-x-hidden">
               <Navbar />
               <Hero />
               <About />
               <Solutions />
+              <Technology />
               <WhyUs />
               <InteractiveMap />
               <Impact />
               <Collaborate />
               <Footer />
-              <FloatingButtons />
+
             </div>
           }
         />
@@ -88,6 +90,8 @@ function App() {
           path="/solutions/swimming-pool-water-treatment"
           element={<SwimmingPoolWaterTreatment />}
         />
+        <Route path="/technology" element={<Technology />} />
+
       </Routes>
     </Router>
   );
