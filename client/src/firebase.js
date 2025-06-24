@@ -1,41 +1,38 @@
 // src/firebase.js
 
-// Firebase core imports
+// Import core Firebase SDK
 import { initializeApp } from "firebase/app";
-
-// Optional: Firebase analytics (only works in browser environment)
-import { getAnalytics, isSupported } from "firebase/analytics";
 
 // Firestore (Database)
 import { getFirestore } from "firebase/firestore";
 
-// Optional: Firebase Auth (if you plan to use secure authentication later)
+// Firebase Authentication
 import { getAuth } from "firebase/auth";
 
-// Your Firebase configuration
+// (Optional) Firebase Analytics
+import { getAnalytics, isSupported } from "firebase/analytics";
+
+// Your Firebase configuration (company mail project hydrocawach-cbed1)
 const firebaseConfig = {
-  apiKey: "AIzaSyDTg3bwVxdTOAsp-1GZyEGH5fHP4pnfcB8",
-  authDomain: "hydrocawach-cbed1.firebaseapp.com",
-  projectId: "hydrocawach-cbed1",
-  storageBucket: "hydrocawach-cbed1.appspot.com",
-  messagingSenderId: "3693110012",
-  appId: "1:3693110012:web:50758cf1f386d707302d79",
-  measurementId: "G-LHECVHHY8S"
+  apiKey: "AIzaSyBhYbiT55X-kqZLKl_CARuvmALbII9Wak0",
+  authDomain: "hydrocawach-6bf52.firebaseapp.com",
+  projectId: "hydrocawach-6bf52",
+  storageBucket: "hydrocawach-6bf52.firebasestorage.app",
+  messagingSenderId: "411017403839",
+  appId: "1:411017403839:web:c2a38dca7a93c21e2f550a"
 };
 
-// Initialize Firebase App
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firestore DB
+// Initialize Firestore and Auth services
 export const db = getFirestore(app);
-
-// Optional: Initialize Auth
 export const auth = getAuth(app);
 
-// Optional: Initialize Analytics (only if supported)
+// Initialize Analytics (if supported)
 export let analytics = null;
-isSupported().then((yes) => {
-  if (yes) {
+isSupported().then((supported) => {
+  if (supported) {
     analytics = getAnalytics(app);
   }
 });
