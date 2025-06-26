@@ -20,6 +20,7 @@ import './index.css';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
 import SolutionsAuth from './auth/SolutionsAuth';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Solution Pages
 import HandpumpWaterDisinfection from './pages/HandpumpWaterDisinfection';
@@ -65,32 +66,60 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
-        {/* Solution Detail Pages */}
+        {/* Solution Detail Pages (Protected) */}
         <Route
           path="/solutions/handpump-water-disinfection"
-          element={<HandpumpWaterDisinfection />}
+          element={
+            <ProtectedRoute>
+              <HandpumpWaterDisinfection />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/solutions/lake-and-pond-rejuvenation"
-          element={<LakeAndPondRejuvenation />}
+          element={
+            <ProtectedRoute>
+              <LakeAndPondRejuvenation />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/solutions/industrial-effluent-pre-treatment"
-          element={<IndustrialEffluentPreTreatment />}
+          element={
+            <ProtectedRoute>
+              <IndustrialEffluentPreTreatment />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/solutions/cooling-tower-treatment"
-          element={<CoolingTowerTreatment />}
+          element={
+            <ProtectedRoute>
+              <CoolingTowerTreatment />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/solutions/sewage-water-treatment"
-          element={<SewageWaterTreatment />}
+          element={
+            <ProtectedRoute>
+              <SewageWaterTreatment />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/solutions/swimming-pool-water-treatment"
-          element={<SwimmingPoolWaterTreatment />}
+          element={
+            <ProtectedRoute>
+              <SwimmingPoolWaterTreatment />
+            </ProtectedRoute>
+          }
         />
+
         <Route path="/technology" element={<Technology />} />
+
+        <Route path="/inquiry" element={<div className="p-10 text-center text-xl">Inquiry Page Coming Soon!</div>} />
+
 
       </Routes>
     </Router>

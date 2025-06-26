@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
 
 const Technology = () => {
   return (
@@ -38,11 +40,13 @@ const Technology = () => {
 
           {/* Right Column - Blue background */}
           <div className="bg-blue-600 text-white p-8 rounded-lg shadow-lg flex flex-col justify-center">
-            <h3 className="text-2xl font-semibold mb-4">
-              Advanced Water Disinfection
-            </h3>
+            <Link to="/solutions/handpump-water-disinfection">
+              <h3 className="text-2xl font-semibold mb-4 hover:underline cursor-pointer">
+                Water Disinfecting HandPump
+              </h3>
+            </Link>
             <p className="text-lg leading-relaxed">
-              Our technology harnesses cutting-edge disinfection methods to ensure water safety and purity at all times.
+              HydroCawach's Handpump Water Disinfection system uses hydrodynamic cavitation to eliminate harmful microbes like E. Coli without chemicals or electricity. It easily integrates with existing rural handpumps, offering a sustainable, low-maintenance solution. Validated through government field trials, the patented technology ensures up to 99.87% clean drinking water for underserved communities.
             </p>
           </div>
         </motion.div>
@@ -57,20 +61,23 @@ const Technology = () => {
         >
           {/* Left Column - Blue background */}
           <div className="bg-blue-600 text-white p-8 rounded-lg shadow-lg flex flex-col justify-center">
-            <h3 className="text-2xl font-semibold mb-4">
-              Smart Cooling System Monitoring
-            </h3>
+            <Link to="/solutions/lake-and-pond-rejuvenation">
+              <h3 className="text-2xl font-semibold mb-4 hover:underline">
+                Lake and Pond Water Treatment
+              </h3>
+            </Link>
             <p className="text-lg leading-relaxed">
-              Real-time monitoring and automation of cooling water treatments to maintain operational efficiency and reduce costs.
+              HydroCawach’s Lake and Pond Rejuvenation solution leverages advanced Hydrodynamic Cavitation Technology to restore water quality without chemicals. By reducing BOD, COD, and halting hyacinth growth, the system eliminates foul odors and revives aquatic ecosystems. This sustainable, in-situ treatment has successfully transformed stagnant water bodies into thriving, biodiverse environments.
             </p>
           </div>
+
 
           {/* Right Column - No background */}
           <div className="flex items-center justify-center">
             <img
-              src="/cooling_treatment.jpg"
-              alt="Cooling Treatment"
-              className="rounded-lg shadow-lg w-full"
+              src="/BinduLake.png"
+              alt="Lake"
+              className="rounded-lg shadow-lg w-full max-h-90 object-contain"
             />
           </div>
         </motion.div>
