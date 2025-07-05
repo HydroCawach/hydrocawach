@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import InteractiveMap from './components/InteractiveMap';
 import './index.css';
-
+import CavitationTechnology from './components/CavitationTechnology';
 // Auth Components
 import Login from './auth/Login';
 import Signup from './auth/Signup';
@@ -115,12 +115,20 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/technology/hydrodynamic-cavitation"
+          element={
+            <ProtectedRoute>
+              <CavitationTechnology />
+            </ProtectedRoute>
+          }
+        />
 
         <Route path="/technology" element={<Technology />} />
 
         <Route path="/inquiry" element={<div className="p-10 text-center text-xl">Inquiry Page Coming Soon!</div>} />
 
-
+        <Route path="/technology/hydrodynamic-cavitation" element={<CavitationTechnology />} />
       </Routes>
     </Router>
   );

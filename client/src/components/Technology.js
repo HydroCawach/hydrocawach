@@ -21,7 +21,7 @@ const Technology = () => {
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
-        {/* Row 1 */}
+        {/* Row 1 - updated to summary only */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,58 +29,32 @@ const Technology = () => {
           transition={{ duration: 0.8 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
         >
-          {/* Left Column - No background */}
+          {/* Video */}
           <div className="flex items-center justify-center">
             <video
               controls
-              src="vid.mp4"
+              src="/vid3.mp4"
               className="rounded-lg shadow-lg w-full"
             />
           </div>
 
-          {/* Right Column - Blue background */}
+          {/* Summary Text + Button */}
           <div className="bg-blue-600 text-white p-8 rounded-lg shadow-lg flex flex-col justify-center">
-            <Link to="/solutions/handpump-water-disinfection">
-              <h3 className="text-2xl font-semibold mb-4 hover:underline cursor-pointer">
-                Water Disinfecting HandPump
-              </h3>
-            </Link>
-            <p className="text-lg leading-relaxed">
-              HydroCawach's Handpump Water Disinfection system uses hydrodynamic cavitation to eliminate harmful microbes like E. Coli without chemicals or electricity. It easily integrates with existing rural handpumps, offering a sustainable, low-maintenance solution. Validated through government field trials, the patented technology ensures up to 99.87% clean drinking water for underserved communities.
+            <h3 className="text-2xl font-semibold mb-4">
+              Hydrodynamic Cavitation Technology
+            </h3>
+            <p className="text-lg leading-relaxed mb-4">
+              Our cutting-edge cavitation-based treatment destroys harmful microbes,
+              reduces BOD & COD, and clarifies water—without chemicals or filters.
             </p>
+            <Link to="/technology/hydrodynamic-cavitation">
+              <button className="bg-white text-blue-600 font-semibold px-4 py-2 rounded shadow hover:bg-blue-100">
+                Learn More
+              </button>
+            </Link>
           </div>
         </motion.div>
 
-        {/* Row 2 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
-        >
-          {/* Left Column - Blue background */}
-          <div className="bg-blue-600 text-white p-8 rounded-lg shadow-lg flex flex-col justify-center">
-            <Link to="/solutions/lake-and-pond-rejuvenation">
-              <h3 className="text-2xl font-semibold mb-4 hover:underline">
-                Lake and Pond Water Treatment
-              </h3>
-            </Link>
-            <p className="text-lg leading-relaxed">
-              HydroCawach’s Lake and Pond Rejuvenation solution leverages advanced Hydrodynamic Cavitation Technology to restore water quality without chemicals. By reducing BOD, COD, and halting hyacinth growth, the system eliminates foul odors and revives aquatic ecosystems. This sustainable, in-situ treatment has successfully transformed stagnant water bodies into thriving, biodiverse environments.
-            </p>
-          </div>
-
-
-          {/* Right Column - No background */}
-          <div className="flex items-center justify-center">
-            <img
-              src="/BinduLake.png"
-              alt="Lake"
-              className="rounded-lg shadow-lg w-full max-h-90 object-contain"
-            />
-          </div>
-        </motion.div>
       </div>
     </section>
   );

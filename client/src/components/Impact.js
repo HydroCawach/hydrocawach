@@ -9,24 +9,25 @@ const impactItems = [
     sdgLogo: '/sdg.png',
   },
   {
-    title: 'Operational Cost Savings',
-    value: '75%+',
-    sdg: 'SDG 9 – Industry, Innovation & Infrastructure',
-    sdgLogo: '/sdg9.png',
-  },
-  {
-    title: 'Rural Beneficiaries with Safe Water Access',
-    value: '50,000+',
+    title: 'Treated',
+    value: '11+ Billion litres',
     sdg: 'SDG 6 – Clean Water & Sanitation',
     sdgLogo: '/sdg.png',
   },
   {
-    title: 'Strategic Partnerships',
-    value: 'Indian Oil, Cummins, Govt. Depts',
-    sdg: 'SDG 17 – Partnerships for the Goals',
-    sdgLogo: '/sdg17.png',
+    title: 'Recycled',
+    value: '36+ Billion litres',
+    sdg: 'SDG 12 – Responsible Consumption & Production',
+    sdgLogo: '/sdg12.png',
+  },
+  {
+    title: 'Harvested & Saved',
+    value: '135+ Trillion litres',
+    sdg: 'SDG 13 – Climate Action',
+    sdgLogo: '/sdg13.jpg',
   },
 ];
+
 
 const Impact = () => {
   return (

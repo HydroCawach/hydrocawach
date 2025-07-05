@@ -26,7 +26,7 @@ const WhatsAppConnect = () => (
       </motion.p>
 
       <motion.a
-        href="https://wa.me/919322949621"
+        href="https://wa.me/8624984991"
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05, rotate: '-1deg' }}

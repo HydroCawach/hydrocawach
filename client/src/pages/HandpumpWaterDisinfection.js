@@ -55,7 +55,7 @@ const HandpumpWaterDisinfection = () => {
           {[
             {
               title: 'How It Works',
-              image: '/pump_working.png',
+              video: '/vid.mp4',
               text: 'Our device forces water through a narrow chamber where cavitation bubbles form and collapse. This intense energy breaks microbial cell walls, as shown. Microbes like E. Coli are disrupted without chemicals. The entire process is powered by flow, not electricity.'
             },
             {
@@ -73,13 +73,20 @@ const HandpumpWaterDisinfection = () => {
               key={index}
               className="bg-white border rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:shadow-2xl hover:scale-105"
             >
-              {/* Centered Image with no crop */}
               <div className="bg-gray-100 flex justify-center items-center">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="w-full h-64 object-contain"
-                />
+                {card.video ? (
+                  <video
+                    src={card.video}
+                    controls
+                    className="w-full h-64 object-contain"
+                  />
+                ) : (
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-64 object-contain"
+                  />
+                )}
               </div>
               <div className="p-5">
                 <h2 className="text-2xl font-semibold mb-3 text-center">{card.title}</h2>
