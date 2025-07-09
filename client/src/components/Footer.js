@@ -27,7 +27,7 @@ const Footer = () => {
                   />
                 </svg>
                 <a href="mailto:contact@hydrocawach.com" className="hover:text-blue-400">
-                  contact@hydrocawach.com
+                  info@hydrocawach.com
                 </a>
               </li>
               <li className="flex items-center">
@@ -45,7 +45,7 @@ const Footer = () => {
                   />
                 </svg>
                 <a href="tel:+911234567890" className="hover:text-blue-400">
-                  +91 123 456 7890
+                  +911234567890
                 </a>
               </li>
               <li className="flex items-center">
@@ -68,7 +68,7 @@ const Footer = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>Bangalore, India</span>
+                <span>Mumbai, India</span>
               </li>
             </ul>
           </div>
