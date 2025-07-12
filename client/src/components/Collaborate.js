@@ -39,7 +39,8 @@ const Collaborate = () => {
             className="flex justify-center"
           >
             <motion.a
-              href="https://wa.me/919322949621"
+              href="https://wa.me/919503364991"
+
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, rotate: '-1deg' }}

@@ -14,6 +14,7 @@ import Collaborate from './components/Collaborate';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import InteractiveMap from './components/InteractiveMap';
+import SupportedBy from './components/SupportedBy';
 import './index.css';
 import CavitationTechnology from './components/CavitationTechnology';
 // Auth Components
@@ -54,6 +55,7 @@ function App() {
               <WhyUs />
               <InteractiveMap />
               <Impact />
+              <SupportedBy />
               <Collaborate />
               <Footer />
 
@@ -129,6 +131,9 @@ function App() {
         <Route path="/inquiry" element={<div className="p-10 text-center text-xl">Inquiry Page Coming Soon!</div>} />
 
         <Route path="/technology/hydrodynamic-cavitation" element={<CavitationTechnology />} />
+
+        <Route path="/supported-by" element={<SupportedBy />} />
+
       </Routes>
     </Router>
   );
