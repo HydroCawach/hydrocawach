@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
@@ -112,3 +113,6 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+// src/auth/

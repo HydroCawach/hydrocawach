@@ -38,19 +38,35 @@ const CavitationTechnology = () => {
             a cutting-edge, chemical-free, and energy-efficient technology revolutionizing water and wastewater treatment.
           </p>
 
-          <h2 className="text-2xl font-semibold text-blue-600 mt-6">How It Works</h2>
-          <p>
-            Hydrodynamic cavitation involves the controlled formation, growth, and violent collapse of microscopic bubbles in water.
-            When water passes through specially designed cavitation devices like venturi tubes or orifice plates at high velocity,
-            bubbles collapse violently, producing intense microjets and shockwaves.
-          </p>
+          <h2 className="text-2xl font-semibold text-blue-600 mt-6 mb-4">How It Works</h2>
 
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Microbial Destruction:</strong> Physically disrupts microbial cells, reducing pathogens like E. Coli.</li>
-            <li><strong>Reduction in BOD:</strong> Destroys organic contaminants and microorganisms, improving oxygen levels.</li>
-            <li><strong>OH Radical Generation:</strong> Produces reactive radicals that break down complex pollutants, reducing COD.</li>
-            <li><strong>Algae Removal:</strong> Breaks algal cells for visibly clearer and healthier water bodies.</li>
-          </ul>
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            {/* Text section */}
+            <div className="md:w-1/2 space-y-4">
+              <p>
+                Hydrodynamic cavitation involves the controlled formation, growth, and violent collapse of microscopic bubbles in water.
+                When water passes through specially designed cavitation devices like venturi tubes or orifice plates at high velocity,
+                bubbles collapse violently, producing intense microjets and shockwaves.
+              </p>
+
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Microbial Destruction:</strong> Physically disrupts microbial cells, reducing pathogens like E. Coli.</li>
+                <li><strong>Reduction in BOD:</strong> Destroys organic contaminants and microorganisms, improving oxygen levels.</li>
+                <li><strong>OH Radical Generation:</strong> Produces reactive radicals that break down complex pollutants, reducing COD.</li>
+                <li><strong>Algae Removal:</strong> Breaks algal cells for visibly clearer and healthier water bodies.</li>
+              </ul>
+            </div>
+
+            {/* Image section */}
+            <div className="md:w-1/2 flex justify-center">
+              <img
+                src="/pump_working.png"
+                alt="Pump Working Diagram"
+                className="w-full max-w-md rounded-lg shadow-md object-contain"
+              />
+            </div>
+          </div>
+
 
           <h2 className="text-2xl font-semibold text-blue-600 mt-6">Why Choose Hydrocawach's Cavitation Technology?</h2>
           <ul className="list-disc pl-6 space-y-2">

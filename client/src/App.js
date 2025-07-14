@@ -22,7 +22,7 @@ import Login from './auth/Login';
 import Signup from './auth/Signup';
 import SolutionsAuth from './auth/SolutionsAuth';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import CompleteSignIn from './auth/CompleteSignIn';
 // Solution Pages
 import HandpumpWaterDisinfection from './pages/HandpumpWaterDisinfection';
 import LakeAndPondRejuvenation from './pages/LakeAndPondRejuvenation';
@@ -133,6 +133,9 @@ function App() {
         <Route path="/technology/hydrodynamic-cavitation" element={<CavitationTechnology />} />
 
         <Route path="/supported-by" element={<SupportedBy />} />
+
+        <Route path="/complete-signin" element={<CompleteSignIn />} />
+
 
       </Routes>
     </Router>
