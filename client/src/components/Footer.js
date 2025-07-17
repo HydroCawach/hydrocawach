@@ -85,10 +85,13 @@ const Footer = () => {
                 <a href="#solutions" className="hover:text-blue-400">Solutions</a>
               </li>
               <li>
+                <a href="#technology" className="hover:text-blue-400">Technology</a>
+              </li>
+              <li>
                 <a href="#impact" className="hover:text-blue-400">Impact</a>
               </li>
               <li>
-                <a href="#collaborate" className="hover:text-blue-400">Collaborate</a>
+                <a href="#collaborate" className="hover:text-blue-400">Connect</a>
               </li>
             </ul>
           </div>
@@ -98,7 +101,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
             <div className="flex space-x-4">
               <motion.a
-                href="https://linkedin.com/company/hydrocawach"
+                href="https://www.linkedin.com/company/hydrocawach-technologies-pvt-ltd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -113,7 +116,7 @@ const Footer = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="mailto:contact@hydrocawach.com"
+                href="mailto:info@hydrocawach.com"
                 whileHover={{ scale: 1.1 }}
                 className="text-white hover:text-blue-400"
               >
@@ -137,7 +140,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © {currentYear} Hydrocawach Technologies. All rights reserved.
+            © {currentYear} HydroCawach Technologies PVT. LTD. All rights reserved.
           </p>
         </div>
       </div>
